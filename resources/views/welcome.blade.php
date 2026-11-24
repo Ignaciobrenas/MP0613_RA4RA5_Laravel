@@ -21,6 +21,7 @@
 
         <li><a href="/filmout/filmsByYear">Pelis por año</a></li>
         <li><a href="/filmout/filmsByGenre">Pelis por género</a></li>
+        <li><a href="/filmout/sortFilms">Pelis ordenadas por año</a></li>
 
 
     </ul>

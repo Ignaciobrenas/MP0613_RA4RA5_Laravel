@@ -77,6 +77,16 @@ class FilmController extends Controller
             fn (array $film): bool => mb_strtolower($film['genre'], 'UTF-8') === $targetGenre
         );
     }
+    
+    public function sortFilms()
+    {
+        $title = "Listado de todas las pelis ordenadas por año";
+        $films = FilmController::readFilms();
+
+        usort($films, fn (array $a, array $b): int => (int) $b['year'] <=> (int) $a['year']);
+
+        return view('films.list', ["films" => $films, "title" => $title]);
+    }
 
     /**
      * Return all films when no filter is given, or filter them with the predicate.

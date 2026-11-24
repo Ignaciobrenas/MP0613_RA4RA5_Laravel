@@ -89,6 +89,18 @@ class FilmController extends Controller
     }
 
     /**
+     * Count total number of films.
+     */
+    public function countFilms()
+    {
+        $title = "Contador de Películas";
+        $films = FilmController::readFilms();
+        $totalFilms = count($films);
+
+        return view('films.counter', ["totalFilms" => $totalFilms, "title" => $title]);
+    }
+
+    /**
      * Return all films when no filter is given, or filter them with the predicate.
      */
     private function filterFilms($filterValue, string $filteredTitle, callable $predicate)
